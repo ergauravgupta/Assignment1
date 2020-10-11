@@ -41,7 +41,7 @@ export default class NewHorseScreen extends Component {
 
 	renderLabel(title, color) {
 		return (
-			<Text style={{ color, padding: 10 }} h5>
+			<Text style={{ color, padding: 10, fontSize: 14, fontWeight: 'bold' }} h5>
 				{title}
 			</Text>
 		);
@@ -66,11 +66,12 @@ export default class NewHorseScreen extends Component {
 		);
 	}
 
-	renderExtraInput(label, placeholder, value, onChangeText) {
+	renderExtraInput(label, placeholder, value, onChangeText, color) {
 		return (
 			<Input
 				label={label}
 				value={value}
+				inputStyle={{ color: color }}
 				placeholder={placeholder}
 				keyboardType={'numeric'}
 				onChangeText={onChangeText}
@@ -109,8 +110,12 @@ export default class NewHorseScreen extends Component {
 							{this.renderLabel('Life Stage', theme.foreground)}
 							{this.renderLifeStage(buttons)}
 							{this.renderLabel('Boy weight calculation', theme.foreground)}
-							{this.renderExtraInput('Body length', 'Enter body length', this.state.body_length, (body_length) =>
-								this.setState({ body_length })
+							{this.renderExtraInput(
+								'Body length',
+								'Enter body length',
+								this.state.body_length,
+								(body_length) => this.setState({ body_length }),
+								theme.foreground
 							)}
 							{this.renderExtraInput(
 								'Mature body weight',
@@ -118,10 +123,15 @@ export default class NewHorseScreen extends Component {
 								this.state.body_weight,
 								(body_weight) => {
 									this.setState({ body_weight });
-								}
+								},
+								theme.foreground
 							)}
-							{this.renderExtraInput('Heart Girth', 'Enter heart girth', this.state.heart_girth, (heart_girth) =>
-								this.setState({ heart_girth })
+							{this.renderExtraInput(
+								'Heart Girth',
+								'Enter heart girth',
+								this.state.heart_girth,
+								(heart_girth) => this.setState({ heart_girth }),
+								theme.foreground
 							)}
 							<Button
 								buttonStyle={{ width: '100%', marginTop: 30 }}

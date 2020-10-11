@@ -15,7 +15,10 @@ export default class ApplyThemeScreen extends Component {
 				{({ theme, updateTheme }) => (
 					<View style={{ flex: 1, backgroundColor: theme.background }}>
 						<AppHeader title={'Apply Theme'} navigation={this.props.navigation} />
-						<Text style={{ padding: 20, textAlign: 'center', flex: 1, justifyContent: 'center' }} h5>
+						<Text
+							style={{ padding: 20, textAlign: 'center', flex: 1, justifyContent: 'center', color: theme.foreground }}
+							h5
+						>
 							Use the button below to apply dark or light theme is app based on Device's theme/mode selection
 						</Text>
 						<SafeAreaView>
